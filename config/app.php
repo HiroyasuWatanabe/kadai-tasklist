@@ -2,6 +2,32 @@
 
 return [
 
+    // 中略
+
+    'providers' => [
+
+        // 中略
+
+        // 追加
+        Collective\Html\HtmlServiceProvider::class,
+    ],
+
+    // 中略
+
+    'aliases' => [
+
+        // 中略
+
+        // 追加
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+    ],
+
+    // 中略
+    
+    
+    
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

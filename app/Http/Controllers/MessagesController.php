@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Message;    // 追加
+
 class MessagesController extends Controller
 {
     /**
@@ -16,8 +18,13 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return view('messages.index', [
+            'messages' => $messages,
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +55,11 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = Message::find($id);
+
+        return view('messages.show', [
+            'message' => $message,
+        ]);
     }
 
     /**
@@ -56,7 +67,19 @@ class MessagesController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     **/
+     
+    public function create()
+    {
+        $message = new Message;
+
+        return view('messages.create', [
+            'message' => $message,
+        ]);
+    } 
+     
+     
+     
     public function edit($id)
     {
         //
